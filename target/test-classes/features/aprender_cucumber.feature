@@ -16,19 +16,19 @@ Cenário: Deve incrementar um contador
 	Quando  eu incrementar em 3 
 	Então o valor do contador sera 18
 	
-	
+	@tipo1
 Cenário: Deve incrementar um contador
 	Dado que o valor do contador é 123
 	Quando  eu incrementar em 35
 	Então o valor do contador sera 158
 	
-	
+@tipo2
 Cenário: Deve calcular atraso na entrega
 	Dado que a entrega é dia 05/04/2018	
 	Quando a entrega atrasar em 2 dias
 	Então a entrega sera efetuada em 07/04/2018
 	
-	
+	@tipo1 @tipo2
 Cenário: Deve calcular atraso na entrega da china
 	Dado que a entrega é dia 05/04/2018
 	Quando a entrega atrasar em 2 meses
@@ -49,7 +49,6 @@ Cenário: Deve reaproveitar os steps "Dado" do cenário anterior
     Dado que o nome do passageiro é "Cicrano de Oliveira"
     Dado que o telefone do passageiro é 9888-8888
     
-     
 
 
 	
