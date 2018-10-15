@@ -9,6 +9,7 @@ import org.junit.Assert;
 
 import br.ce.thomaz.entidades.Filme;
 import br.ce.thomaz.entidades.NotaAluguel;
+import br.ce.thomaz.entidades.TipoAluguel;
 import br.ce.thomaz.servicos.AluguelService;
 import br.ce.thomaz.utils.DateUtils;
 import cucumber.api.PendingException;
@@ -23,7 +24,7 @@ public class AlugarFilmeSteps {
 	private AluguelService aluguel = new AluguelService();
 	private NotaAluguel nota;
 	private String erro;
-	private String tipoAluguel;
+	private TipoAluguel tipoAluguel = TipoAluguel.COMUN;
 	
 	@Dado("^um filme com estoque de (\\d+) unidades$")
 	public void umFilmeComEstoqueDeUnidades(int arg1) throws Throwable {
@@ -64,7 +65,7 @@ public class AlugarFilmeSteps {
 	
 	@Dado("^que o tipo de aluguel seja (.*)$")
 	public void queOTipoDeAluguelSejaExtendido(String tipo) throws Throwable {
-	    tipoAluguel = tipo;
+		tipoAluguel = tipo.equals("semanal")? TipoAluguel.SEMANAL: tipo.equals("extendido")? TipoAluguel.EXTENDIDO: TipoAluguel.COMUN;
 	}
 
 	@Então("^a data de entrega sera em (\\d+) dias?$")
